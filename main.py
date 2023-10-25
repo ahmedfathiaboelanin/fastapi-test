@@ -25,7 +25,7 @@ encoder = OneHotEncoder(categories=[all_possible_symptoms], sparse=False)
 encoder.fit([[symptom] for symptom in all_possible_symptoms])
 
 # Load your pre-trained model
-model = joblib.load("./model.pkl")
+model = joblib.load("model.pkl")
 
 # Initialize FastAPI
 app = FastAPI()
