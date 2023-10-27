@@ -1,6 +1,6 @@
 # main.py
-#uvicorn main:app --reload
-
+# uvicorn main:app --reload
+import os
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
@@ -25,7 +25,8 @@ encoder = OneHotEncoder(categories=[all_possible_symptoms], sparse=False)
 encoder.fit([[symptom] for symptom in all_possible_symptoms])
 
 # Load your pre-trained model
-model = joblib.load("model.pkl")
+model_path = os.path.join(os.getcwd(), "model.pkl")
+model = joblib.load(model_path)
 
 # Initialize FastAPI
 app = FastAPI()
